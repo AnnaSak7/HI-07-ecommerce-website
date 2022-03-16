@@ -1,6 +1,6 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Product from './components/Product';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import ProductPage from './pages/ProductPage';
 import { Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -15,7 +15,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/product/:slug" element={<Product />} />
+            <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>

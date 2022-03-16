@@ -1,8 +1,9 @@
 import { useEffect, useReducer } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import Button from '@mui/material/Button';
+import { Row, Col } from 'react-bootstrap';
+import Product from '../components/Product';
+
 //import data from '../data';
 
 const reducer = (state, action) => {
@@ -43,24 +44,19 @@ const Home = () => {
     <>
       <h1>New Arrivals</h1>
       <div className="products">
-        {products.map((product) => (
-          <div className="product" key={product.slug}>
-            <Link to={`/product/${product.slug}`}>
-              <img src={product.image} alt={product.name} />
-            </Link>
-            <div className="product-info">
-              <Link to={`/product/${product.slug}`}>
-                <p>{product.name}</p>
-              </Link>
-              <p>
-                <strong>$ {product.price}</strong>
-              </p>
-              <Button size="small" variant="outlined">
-                Add to cart
-              </Button>
-            </div>
-          </div>
-        ))}
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          <Row>
+            {products.map((product) => (
+              <Col sm={6} md={4} lg={3} className="mb-3" key={product.slug}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
     </>
   );
