@@ -8,3 +8,16 @@ MERN ECOMMERCE WEBSITE
 2. npm install axios
 3. use effect hook
 4. use reducer hook
+
+### Manage State By Reducer Hook
+
+1. define reducer
+2. update fetch data
+3. get state from useReducer
+
+### Bootstrap
+
+npm install react-bootstrap _bootstrap version_
+npm install react-router-bootstrap ...for _LinkContainer_
+
+Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstrap.min.css_
