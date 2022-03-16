@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Product from './components/Product';
 
@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <a href="/">HTTP DOG</a>
+          <Link to="/">HTTP DOG</Link>
         </header>
         <main>
           <Routes>
