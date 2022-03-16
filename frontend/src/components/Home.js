@@ -4,7 +4,7 @@ import data from '../data';
 const Home = () => {
   return (
     <>
-      <h1>Featured Products</h1>
+      <h1>New Arrivals</h1>
       <div className="products">
         {data.products.map((product) => (
           <div className="product" key={product.slug}>
