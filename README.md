@@ -58,3 +58,6 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. define reducer
 3. create store provider
 4. implement add to cart button click handler
+
+5. check exist item in the cart
+6. check count in stock in backend

@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: '100 CONTINUE',
       slug: '100-continue',
       category: 'Poster',
@@ -11,6 +12,7 @@ const data = {
       rating: 5,
     },
     {
+      _id: '2',
       name: '200 OK',
       slug: '200-ok',
       category: 'Poster',
@@ -21,6 +23,7 @@ const data = {
       rating: 4,
     },
     {
+      _id: '3',
       name: '301 MOVED PERMANENTLY',
       slug: '301-moved-permanently',
       category: 'Poster',
@@ -31,6 +34,7 @@ const data = {
       rating: 4.5,
     },
     {
+      _id: '4',
       name: '404 NOT FOUND',
       slug: '404-not-found',
       category: 'Poster',
