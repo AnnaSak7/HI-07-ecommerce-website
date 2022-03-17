@@ -38,3 +38,8 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. use spinner component
 3. create message component
 4. create utils.js to define getError function
+
+### Connect to MongoDB Database
+
+- npm install mongoose (MongoDB object modeling to connect with MongoDB)
+- npm install dotenv (to load .env file in the node application)
