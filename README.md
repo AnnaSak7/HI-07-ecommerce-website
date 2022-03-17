@@ -17,7 +17,17 @@ MERN ECOMMERCE WEBSITE
 
 ### Bootstrap
 
-npm install react-bootstrap _bootstrap version_
-npm install react-router-bootstrap ...for _LinkContainer_
+- npm install react-bootstrap _bootstrap version_
+- npm install react-router-bootstrap ...for _LinkContainer_
 
 Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstrap.min.css_
+
+### Create Product Details Page
+
+1. fetch product from backend
+2. create 3 columns for image, info, action
+
+### Change names of headings
+
+- npm install react-helmet-async
+- _<HelmetProvider> <Helmet><title>some title</title</Helmet>_

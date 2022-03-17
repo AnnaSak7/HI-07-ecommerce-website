@@ -26,7 +26,7 @@ const data = {
       category: 'Poster',
       image: '/images/301.jpg',
       price: 110,
-      countInStock: 3,
+      countInStock: 2,
       breed: 'Kaiken',
       rating: 4.5,
     },
