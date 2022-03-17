@@ -43,3 +43,18 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 
 - npm install mongoose (MongoDB object modeling to connect with MongoDB)
 - npm install dotenv (to load .env file in the node application)
+
+### Seed data
+
+1. create Product model
+2. create User model
+3. create seed route
+4. use route in server.js
+5. seed sample product
+
+### Implement Add to Cart
+
+1. create react context (to manage state globally)
+2. define reducer
+3. create store provider
+4. implement add to cart button click handler

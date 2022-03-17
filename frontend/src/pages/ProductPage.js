@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Row, Col, ListGroup } from 'react-bootstrap';
@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import getError from '../utils';
+import { Store } from '../Store';
 import { Breadcrumbs, Button, Link, Typography } from '@mui/material';
 import { Badge } from 'react-bootstrap';
 import { styled } from '@mui/material/styles';
@@ -85,6 +86,14 @@ const ProductPage = () => {
     fetchData();
   }, []);
 
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity: 1 },
+    });
+  };
+
   return loading ? (
     <LoadingBox />
   ) : error ? (
@@ -121,7 +130,12 @@ const ProductPage = () => {
             )}
           </p>
 
-          <CustomButton variant="contained" disableRipple size="large">
+          <CustomButton
+            onClick={addToCartHandler}
+            variant="contained"
+            disableRipple
+            size="large"
+          >
             Add to cart
           </CustomButton>
           <CustomButton variant="contained" disableRipple size="large">
