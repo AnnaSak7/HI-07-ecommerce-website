@@ -31,3 +31,10 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 
 - npm install react-helmet-async
 - _<HelmetProvider> <Helmet><title>some title</title</Helmet>_
+
+### Loading and Message Component
+
+1. create loading component
+2. use spinner component
+3. create message component
+4. create utils.js to define getError function
