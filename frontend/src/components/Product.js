@@ -11,7 +11,7 @@ const CustomButton = styled(Button)({
   marginBottom: '1rem',
   boxShadow: 'none',
   textTransform: 'none',
-  fontSize: 15,
+  fontSize: 14,
   border: '1px solid',
   backgroundColor: '#000',
   borderColor: '#000',
@@ -86,7 +86,7 @@ const Product = (props) => {
             variant="contained"
             size="small"
           >
-            Add to cart
+            ADD TO CART
           </CustomButton>
         )}
       </Card.Body>

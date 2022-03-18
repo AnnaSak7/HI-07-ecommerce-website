@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { BiShoppingBag } from 'react-icons/bi';
 import { BiUserCircle } from 'react-icons/bi';
 import { BiSearch } from 'react-icons/bi';
+import SigninPage from './pages/SigninPage';
 
 function App() {
   const { state } = useContext(Store);
@@ -63,6 +64,7 @@ function App() {
           <Routes>
             <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/signin" element={<SigninPage />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>

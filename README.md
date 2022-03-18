@@ -70,3 +70,11 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 4. click handler for inc/dec item
 5. click handler for remove item
 6. click handler for checkout
+
+### sign in page
+
+1. create sign in form
+2. add email and password
+3. add sign-in button
+
+- npm i bcryptjs
