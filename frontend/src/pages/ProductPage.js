@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Row, Col, ListGroup } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
@@ -65,6 +65,7 @@ const reducer = (state, action) => {
 };
 
 const ProductPage = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -102,6 +103,7 @@ const ProductPage = () => {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
+    navigate('/cart');
   };
 
   return loading ? (
@@ -130,7 +132,7 @@ const ProductPage = () => {
 
           <h1>{product.name}</h1>
 
-          <p>SEK {product.price}</p>
+          <p>{product.price} kr</p>
 
           <p>
             {product.countInStock > 0 ? (
@@ -148,7 +150,12 @@ const ProductPage = () => {
           >
             Add to cart
           </CustomButton>
-          <CustomButton variant="contained" disableRipple size="large">
+          <CustomButton
+            onClick={addToCartHandler}
+            variant="contained"
+            disableRipple
+            size="large"
+          >
             Buy it now
           </CustomButton>
         </Col>

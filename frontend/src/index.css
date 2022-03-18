@@ -24,6 +24,7 @@ header a {
 
 main {
   flex: 1;
+  padding: 3rem;
 }
 
 .products {
@@ -47,4 +48,17 @@ main {
 
 .img-large {
   max-width: 100%;
+}
+
+.img-thumbnail {
+  height: 80px;
+}
+
+.navbar-expand {
+  justify-content: space-around;
+}
+
+.minusPlus {
+  display: flex;
+  justify-content: space-around;
 }
