@@ -62,8 +62,11 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 5. check exist item in the cart
 6. check count in stock in backend
 
-### Checkout page
+### Cart page
 
 1. create 2 columns
 2. display items list
 3. create action column
+4. click handler for inc/dec item
+5. click handler for remove item
+6. click handler for checkout

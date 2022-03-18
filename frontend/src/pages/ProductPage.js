@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Row, Col, ListGroup } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
