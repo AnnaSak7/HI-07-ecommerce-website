@@ -78,3 +78,17 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 3. add sign-in button
 
 - npm i bcryptjs
+
+### Sign in backend API
+
+1. create signin api
+2. npm install jsonwebtoken
+3. define generateToken
+
+- npm install express-async-handler
+  (you can catch error in the async function inside this. If there is an error in this funciton, you can handle it in the server tactics)
+
+- npm install jsonwebtoken
+  (sending a token along with the object in res.send)
+
+- add Advanced Rest Client in Chrome
