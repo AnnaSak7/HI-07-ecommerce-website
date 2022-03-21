@@ -8,8 +8,9 @@ import { Nav, Navbar, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { BiShoppingBag } from 'react-icons/bi';
 import { BiUserCircle } from 'react-icons/bi';
-import { BiSearch } from 'react-icons/bi';
+
 import SigninPage from './pages/SigninPage';
+import SearchBox from '../src/components/SearchBox';
 
 function App() {
   const { state } = useContext(Store);
@@ -18,13 +19,19 @@ function App() {
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
         <header className="App-header">
-          <Navbar bg="dark" variant="dark">
+          <Navbar style={{ backgroundColor: '#000' }} variant="dark">
             <LinkContainer to="/">
               <Navbar.Brand>HTTP DOG</Navbar.Brand>
             </LinkContainer>
-            <BiSearch size="2rem" padding="0" color="#fff" />
+            <div>
+              <Routes>
+                <Route
+                  render={({ history }) => <SearchBox history={history} />}
+                ></Route>
+              </Routes>
+            </div>
 
-            <Nav className="justify-content-center" activeKey="/home">
+            {/* <Nav className="justify-content-center" activeKey="/home">
               <Nav.Item>
                 <Nav.Link href="/home">Home</Nav.Link>
               </Nav.Item>
@@ -39,7 +46,7 @@ function App() {
                   Contact
                 </Nav.Link>
               </Nav.Item>
-            </Nav>
+            </Nav> */}
 
             <Nav className="justify-content-end">
               <Nav.Item>

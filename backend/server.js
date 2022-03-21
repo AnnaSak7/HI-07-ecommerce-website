@@ -33,7 +33,7 @@ app.use('/api/users', userRouter);
 // });
 
 // ERROR HANDLER FOR EXPRESS LIKE A MIDDLEWARE
-// If there is an error in this funciton, you can handle it in the server tactics
+// If there is an error in this function, you can handle it in the server tactics
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });

@@ -30,7 +30,7 @@ export default function CartPage() {
     ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
 
-  const chekcoutHandler = () => {
+  const checkoutHandler = () => {
     navigate('/signin?redirect=/shipping');
   };
 
@@ -109,7 +109,7 @@ export default function CartPage() {
                   <Button
                     type="button"
                     variant="dark"
-                    onClick={chekcoutHandler}
+                    onClick={checkoutHandler}
                     disabled={cartItems.length === 0}
                   >
                     Check Out

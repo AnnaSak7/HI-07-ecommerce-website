@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import { Store } from '../Store';
 
 const CustomButton = styled(Button)({
-  width: '70%',
+  width: '80%',
   marginBottom: '1rem',
   boxShadow: 'none',
   textTransform: 'none',
@@ -68,18 +68,33 @@ const Product = (props) => {
 
   return (
     <Card className="product" key={product.slug}>
-      <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
-      </Link>
-      <Card.Body>
+      <div className="imgContainer">
         <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+          <img src={product.image} alt={product.name} />
         </Link>
-        <Card.Text>{product.price} kr</Card.Text>
+      </div>
+      <Card.Body>
+        <Link
+          to={`/product/${product.slug}`}
+          style={{ textDecoration: 'none', color: '#000' }}
+        >
+          <Card.Title style={{ fontSize: '1.5rem' }}>
+            {product.number}
+          </Card.Title>
+          <Card.Text style={{ fontSize: '1.2rem', fontStyle: 'italic' }}>
+            {product.description}
+          </Card.Text>
+        </Link>
+        <Card.Text style={{ color: 'blue' }}>{product.price} kr</Card.Text>
         {product.countInStock === 0 ? (
-          <Button variant="outlined" size="small" disabled>
-            Out of stock
-          </Button>
+          <CustomButton
+            onClick={addToCartHandler}
+            variant="contained"
+            size="small"
+            disabled
+          >
+            OUT OF STOCK
+          </CustomButton>
         ) : (
           <CustomButton
             onClick={addToCartHandler}

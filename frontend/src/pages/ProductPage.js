@@ -114,7 +114,9 @@ const ProductPage = () => {
     <div>
       <Row>
         <Col md={6}>
-          <img className="img-large" src={product.image} alt={product.name} />
+          <div className="imgContainer">
+            <img className="img-large" src={product.image} alt={product.name} />
+          </div>
         </Col>
         <Col md={6}>
           <Helmet>
@@ -125,14 +127,16 @@ const ProductPage = () => {
               Home
             </Link>
             <Link underline="hover" color="inherit" href="/">
-              300
+              {product.category}
             </Link>
             <Typography color="text.primary">{product.name}</Typography>
           </Breadcrumbs>
 
-          <h1>{product.name}</h1>
-
-          <p>{product.price} kr</p>
+          <h1>{product.number}</h1>
+          <h2>
+            <em>{product.description}</em>
+          </h2>
+          <p style={{ color: 'blue' }}>{product.price} kr</p>
 
           <p>
             {product.countInStock > 0 ? (

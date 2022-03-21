@@ -1,6 +1,17 @@
 # HYPER ISLAND BRIEF 07
 
-MERN ECOMMERCE WEBSITE
+### MERN ECOMMERCE WEBSITE
+
+##Brief : SHOPPING
+The undisclosed brick and mortar store has decided it's time to go online! To be able to give all their customers the best experience, regardless if they're buying from their ph9one or their smart speaker they want an API to easily support and extend their offering.
+
+REQUIREMENTS :
+
+- There need to be at least one way for customers to interact with their new API
+- Customers should be able to find available products
+- Customers should be able to create a shopping cart
+- Should be possible to create an order with a shopping cart or a single item
+- Workers at the store should be able to mark orders as packed and shipped
 
 ### FetchProducts From Backend
 
@@ -86,9 +97,28 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 3. define generateToken
 
 - npm install express-async-handler
-  (you can catch error in the async function inside this. If there is an error in this funciton, you can handle it in the server tactics)
+  (you can catch error in the async function inside this. If there is an error in this function, you can handle it in the server tactics)
 
 - npm install jsonwebtoken
   (sending a token along with the object in res.send)
 
 - add Advanced Rest Client in Chrome
+
+### Complete sign in page with functionality
+
+1. handle submit action
+2. save token in store and local storage
+3. show user name in header
+
+### Search box and search page
+
+1. create search bar in the header.js
+2. handle submit form
+3. edit parse url to get query string
+4. update product list api for search by name
+
+### Add Advanced Search Filter
+
+1. filter by category
+2. filter by price range
+3. filter by average rating
