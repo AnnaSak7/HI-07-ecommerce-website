@@ -139,6 +139,11 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. handle place order action
 3. create order create api
 
+### Place order action
+
+1. handle place order action
+2. create oder create api
+
 ### Search box and search page
 
 1. create search bar in the header.js
