@@ -9,11 +9,12 @@ import { Store } from './Store';
 import { Nav, Navbar, Badge, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { BiShoppingBag } from 'react-icons/bi';
-import { BiUserCircle } from 'react-icons/bi';
+//import { BiUserCircle } from 'react-icons/bi';
 
 import SigninPage from './pages/SigninPage';
 import SearchBox from '../src/components/SearchBox';
 import ShippingAddressPage from './pages/ShippingAddressPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -104,6 +105,7 @@ function App() {
             <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/signin" element={<SigninPage />} />
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="/shipping" element={<ShippingAddressPage />} />
             <Route path="/" element={<Home />} />
           </Routes>

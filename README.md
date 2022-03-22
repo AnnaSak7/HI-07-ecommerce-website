@@ -122,6 +122,12 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. handle save shipping address
 3. add checkout wizard bar
 
+### Sign up page
+
+1. create input forms
+2. handle submit
+3. create backend api
+
 ### Search box and search page
 
 1. create search bar in the header.js
