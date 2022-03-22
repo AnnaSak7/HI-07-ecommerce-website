@@ -1,8 +1,8 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import bcrypt from 'bcryptjs';
 import User from '../models/userModel.js';
-import { generateToken } from '../utils.js';
+// import bcrypt from 'bcryptjs';
+// import { generateToken } from '../utils.js';
 
 const userRouter = express.Router();
 
@@ -34,15 +34,23 @@ userRouter.post(
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      // 1. plain text pw 2.encrypted pw in data
-      if (bcrypt.compareSync(req.body.password, user.password)) {
+      // if (bcrypt.compareSync(req.body.password === user.password))
+      if (req.body.password === user.password) {
         res.send({
           _id: user._id,
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
-          token: generateToken(user),
         });
+        // 1. plain text pw 2.encrypted pw in data
+        // if (bcrypt.compareSync(req.body.password, user.password)) {
+        //   res.send({
+        //     _id: user._id,
+        //     name: user.name,
+        //     email: user.email,
+        //     isAdmin: user.isAdmin,
+        //     token: generateToken(user),
+        //   });
         return;
       }
     }

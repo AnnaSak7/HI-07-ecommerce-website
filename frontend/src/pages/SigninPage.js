@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Store } from '../Store';
+import { toast } from 'react-toastify';
+import getError from '../utils';
 
 const CustomButton = styled(Button)({
   width: '30%',
@@ -54,6 +56,7 @@ const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -66,9 +69,17 @@ const SigninPage = () => {
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
-      alert('Invalid email or password');
+      // toast.error('Invalid email or password');
+      // instead of direct message, getting the error from backend utils to show in the Network preview on the browser
+      toast.error(getError(err));
     }
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   return (
     <Container className="small-container">

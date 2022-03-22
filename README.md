@@ -110,6 +110,12 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. save token in store and local storage
 3. show user name in header
 
+- npm i react-toastify
+  (adding nicer notifications)
+  App.js : import 'react-toastify/dist/ReactToastify.css'
+  <ToastContainer position="bottom-center" limit={1} />
+  SigninPage.js : toast.error(getError(err));
+
 ### Search box and search page
 
 1. create search bar in the header.js

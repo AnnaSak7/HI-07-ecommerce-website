@@ -2,7 +2,11 @@ import { createContext, useReducer } from 'react';
 
 export const Store = createContext();
 
+//デフォルト型　(reducer)
 const initialState = {
+  userInfo: localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null,
   cart: {
     cartItems: localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
@@ -10,8 +14,11 @@ const initialState = {
   },
 };
 
+//デフォルト型　(reducer)
 const reducer = (state, action) => {
-  switch (action.type) {
+  switch (
+    action.type //デフォルト型 (reducer)
+  ) {
     case 'CART_ADD_ITEM':
       // add to card
       const newItem = action.payload;
@@ -37,13 +44,20 @@ const reducer = (state, action) => {
     case 'USER_SIGNIN':
       return { ...state, userInfo: action.payload };
 
+    case 'USER_SIGNOUT':
+      return { ...state, userInfo: null };
     default:
       return state;
   }
 };
 
 export const StoreProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const value = { state, dispatch };
-  return <Store.Provider value={value}>{props.children}</Store.Provider>;
+  const [state, dispatch] = useReducer(reducer, initialState); //デフォルト型 (reducer)
+  const value = { state, dispatch }; // dispatch is a function to update the state
+  return <Store.Provider value={value}>{props.children}</Store.Provider>; // Context Provider
 };
+
+//useReducer
+// dispatch(action)で実行
+// actionは何をするのかを示すオブジェクト
+// {type: increment, payload: 0}のように、typeプロパティ（actionの識別子）と値のプロパティで構成されている。
