@@ -128,6 +128,11 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. handle submit
 3. create backend api
 
+### Implement select payment method page
+
+1. create input form
+2. handle submit
+
 ### Search box and search page
 
 1. create search bar in the header.js
