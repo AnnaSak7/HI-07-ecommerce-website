@@ -13,6 +13,7 @@ import { BiUserCircle } from 'react-icons/bi';
 
 import SigninPage from './pages/SigninPage';
 import SearchBox from '../src/components/SearchBox';
+import ShippingAddressPage from './pages/ShippingAddressPage';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -21,6 +22,7 @@ function App() {
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
   };
   return (
     <BrowserRouter>
@@ -102,6 +104,7 @@ function App() {
             <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/signin" element={<SigninPage />} />
+            <Route path="/shipping" element={<ShippingAddressPage />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>

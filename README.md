@@ -116,6 +116,12 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
   <ToastContainer position="bottom-center" limit={1} />
   SigninPage.js : toast.error(getError(err));
 
+### Shipping page
+
+1. create form inputs
+2. handle save shipping address
+3. add checkout wizard bar
+
 ### Search box and search page
 
 1. create search bar in the header.js
