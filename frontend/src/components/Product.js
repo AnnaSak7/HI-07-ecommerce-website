@@ -85,7 +85,7 @@ const Product = (props) => {
             {product.description}
           </Card.Text>
         </Link>
-        <Card.Text style={{ color: 'blue' }}>{product.price} kr</Card.Text>
+        <Card.Text style={{ color: 'blue' }}>{product.price} SEK</Card.Text>
         {product.countInStock === 0 ? (
           <CustomButton
             onClick={addToCartHandler}
