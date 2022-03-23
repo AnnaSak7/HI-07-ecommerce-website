@@ -2,7 +2,7 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 // import bcrypt from 'bcryptjs';
-// import { generateToken } from '../utils.js';
+import { generateToken } from '../utils.js';
 
 const userRouter = express.Router();
 
@@ -41,6 +41,7 @@ userRouter.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          token: generateToken(user),
         });
         // 1. plain text pw 2.encrypted pw in data
         // if (bcrypt.compareSync(req.body.password, user.password)) {

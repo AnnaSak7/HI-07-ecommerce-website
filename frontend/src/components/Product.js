@@ -4,7 +4,7 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import { Card } from 'react-bootstrap';
 import { styled } from '@mui/material/styles';
-import { Store } from '../Store';
+import { ACTIONS, Store } from '../Store';
 
 const CustomButton = styled(Button)({
   width: '80%',
@@ -61,7 +61,7 @@ const Product = (props) => {
       return;
     }
     ctxDispatch({
-      type: 'CART_ADD_ITEM',
+      type: ACTIONS.CART_ADD_ITEM,
       payload: { ...product, quantity },
     });
   };

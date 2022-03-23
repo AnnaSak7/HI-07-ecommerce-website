@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
-import { Store } from '../Store';
+import { ACTIONS, Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -64,7 +64,7 @@ const PlaceOrderPage = () => {
           },
         }
       );
-      ctxDispatch({ type: 'CART_CLEAR' });
+      ctxDispatch({ type: ACTIONS.CART_CLEAR });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
       navigate(`/order/${data.order._id}`);

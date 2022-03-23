@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
-import { Store } from '../Store';
+import { ACTIONS, Store } from '../Store';
 
 const PaymentMethodPage = () => {
   const navigate = useNavigate();
@@ -22,7 +22,10 @@ const PaymentMethodPage = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
+    ctxDispatch({
+      type: ACTIONS.SAVE_PAYMENT_METHOD,
+      payload: paymentMethodName,
+    });
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
   };

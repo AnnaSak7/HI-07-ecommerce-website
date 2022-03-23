@@ -20,12 +20,22 @@ const initialState = {
   },
 };
 
+export const ACTIONS = {
+  CART_ADD_ITEM: 'CART_ADD_ITEM',
+  CART_REMOVE_ITEM: 'CART_REMOVE_ITEM',
+  CART_CLEAR: 'CART_CLEAR',
+  USER_SIGNIN: 'USER_SIGNIN',
+  USER_SIGNOUT: 'USER_SIGNOUT',
+  SAVE_SHIPPING_ADDRESS: 'SAVE_SHIPPING_ADDRESS',
+  SAVE_PAYMENT_METHOD: 'SAVE_PAYMENT_METHOD',
+};
+
 //デフォルト型　(reducer)
 const reducer = (state, action) => {
   switch (
     action.type //デフォルト型 (reducer)
   ) {
-    case 'CART_ADD_ITEM':
+    case ACTIONS.CART_ADD_ITEM:
       // add to card
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
@@ -39,7 +49,7 @@ const reducer = (state, action) => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
 
-    case 'CART_REMOVE_ITEM': {
+    case ACTIONS.CART_REMOVE_ITEM: {
       const cartItems = state.cart.cartItems.filter(
         (item) => item._id !== action.payload._id
       );
@@ -47,12 +57,12 @@ const reducer = (state, action) => {
       return { ...state, cart: { ...state.cart, cartItems } };
     }
 
-    case 'CART_CLEAR':
+    case ACTIONS.CART_CLEAR:
       return { ...state, cart: { ...state.cart, cartItems: [] } };
-    case 'USER_SIGNIN':
+    case ACTIONS.USER_SIGNIN:
       return { ...state, userInfo: action.payload };
 
-    case 'USER_SIGNOUT':
+    case ACTIONS.USER_SIGNOUT:
       return {
         ...state,
         userInfo: null,
@@ -60,7 +70,7 @@ const reducer = (state, action) => {
         cart: { cartItems: [], shippingAddress: {}, paymentMethod: '' },
       };
 
-    case 'SAVE_SHIPPING_ADDRESS':
+    case ACTIONS.SAVE_SHIPPING_ADDRESS:
       return {
         ...state,
         cart: {
@@ -69,7 +79,7 @@ const reducer = (state, action) => {
         },
       };
 
-    case 'SAVE_PAYMENT_METHOD':
+    case ACTIONS.SAVE_PAYMENT_METHOD:
       return {
         ...state,
         cart: {

@@ -5,8 +5,8 @@ const orderSchema = new mongoose.Schema(
     orderItems: [
       {
         slug: { type: String, required: true },
-        name: { type: String, required: ture },
-        quantity: { type: Number, required: ture },
+        name: { type: String, required: true },
+        quantity: { type: Number, required: true },
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
@@ -31,9 +31,9 @@ const orderSchema = new mongoose.Schema(
       email_address: String,
     },
     itemsPrice: { type: Number, required: true },
-    shippingPrice: { type: Number, required: ture },
+    shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
-    totalPrice: { type: Number, requred: true },
+    totalPrice: { type: Number, required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     isPaid: { type: Boolean, default: false },
     paidAt: { type: Date },
@@ -46,6 +46,6 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.model('Order', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 export default Order;

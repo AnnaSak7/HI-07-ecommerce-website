@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Store } from '../Store';
+import { ACTIONS } from '../Store';
 import MessageBox from '../components/MessageBox';
 import { Helmet } from 'react-helmet-async';
 import { Button, Row, Col, ListGroup, Card } from 'react-bootstrap';
@@ -21,13 +22,13 @@ export default function CartPage() {
       return;
     }
     ctxDispatch({
-      type: 'CART_ADD_ITEM',
+      type: ACTIONS.CART_ADD_ITEM,
       payload: { ...item, quantity },
     });
   };
 
   const removeItemHandler = (item) => {
-    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    ctxDispatch({ type: ACTIONS.CART_REMOVE_ITEM, payload: item });
   };
 
   const checkoutHandler = () => {

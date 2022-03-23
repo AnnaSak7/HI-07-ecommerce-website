@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import getError from '../utils';
-import { Store } from '../Store';
+import { ACTIONS, Store } from '../Store';
 import { Breadcrumbs, Button, Link, Typography } from '@mui/material';
 import { Badge } from 'react-bootstrap';
 import { styled } from '@mui/material/styles';
@@ -100,7 +100,7 @@ const ProductPage = () => {
       return;
     }
     ctxDispatch({
-      type: 'CART_ADD_ITEM',
+      type: ACTIONS.CART_ADD_ITEM,
       payload: { ...product, quantity },
     });
     navigate('/cart');

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import { Store } from '../Store';
+import { ACTIONS, Store } from '../Store';
 import { toast } from 'react-toastify';
 import getError from '../utils';
 
@@ -72,7 +72,7 @@ const SignupPage = () => {
         email,
         password,
       });
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      ctxDispatch({ type: ACTIONS.USER_SIGNIN, payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
