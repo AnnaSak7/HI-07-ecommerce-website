@@ -39,11 +39,12 @@ function App() {
               <Navbar.Brand>HTTP DOG POSTERS</Navbar.Brand>
             </LinkContainer>
             <div>
-              <Routes>
+              <SearchBox />
+              {/* <Routes>
                 <Route
                   render={({ history }) => <SearchBox history={history} />}
                 ></Route>
-              </Routes>
+              </Routes> */}
             </div>
 
             {/* <Nav className="justify-content-center" activeKey="/home">

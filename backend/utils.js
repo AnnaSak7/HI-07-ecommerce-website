@@ -8,13 +8,9 @@ export const generateToken = (user) => {
       email: user.email,
       isAdmin: user.isAdmin,
     },
-    process.env.JWT_SECRET,
-    {
-      expiredIn: '30d',
-    }
+    process.env.JWT_SECRET
   );
 };
-
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {

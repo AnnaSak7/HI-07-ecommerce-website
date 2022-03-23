@@ -4,8 +4,6 @@ import Order from '../models/orderModel.js';
 import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
-
-// isAuth (middleware) is responsible to fill the user of req
 orderRouter.post(
   '/',
   isAuth,
@@ -25,5 +23,4 @@ orderRouter.post(
     res.status(201).send({ message: 'New Order Created', order });
   })
 );
-
 export default orderRouter;
