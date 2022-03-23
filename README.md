@@ -144,6 +144,15 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 1. handle place order action
 2. create oder create api
 
+- when 'authorization: Bearer undefine', check localStorage to see if the user information is correctly stored.
+- when taking out hard coded \_id from data.js, check the schema. (it was \_id: { type: String } when I get error message. take that out then it will generate objectID)
+
+### Order Screen
+
+1. create backend api for oder/:id
+2. fetch order api in frontend
+3. show order information in 2 columns
+
 ### Search box and search page
 
 1. create search bar in the header.js
