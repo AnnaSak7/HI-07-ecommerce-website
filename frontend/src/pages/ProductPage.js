@@ -98,7 +98,7 @@ const ProductPage = () => {
       return;
     }
     ctxDispatch({
-      type: 'CART_ADD_ITEM',
+      type: ACTIONS.CART_ADD_ITEM,
       payload: { ...product, quantity },
     });
     navigate('/cart');

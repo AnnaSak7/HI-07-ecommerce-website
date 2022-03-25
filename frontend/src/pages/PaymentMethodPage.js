@@ -14,11 +14,6 @@ const PaymentMethodPage = () => {
   const [paymentMethodName, setPaymentMethod] = useState(
     paymentMethod || 'PayPal'
   );
-  useEffect(() => {
-    if (!shippingAddress) {
-      navigate('/shipping');
-    }
-  }, [shippingAddress, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -29,6 +24,13 @@ const PaymentMethodPage = () => {
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
   };
+
+  useEffect(() => {
+    if (!shippingAddress) {
+      navigate('/shipping');
+    }
+  }, [shippingAddress, navigate]);
+
   return (
     <>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>

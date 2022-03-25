@@ -34,16 +34,6 @@ const PlaceOrderPage = () => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
-  const roundNumber2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; //123.4567 => 123.46
-
-  cart.itemsPrice = roundNumber2(
-    cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
-  );
-  cart.shippingPrice =
-    cart.itemsPrice > 100 ? roundNumber2(0) : roundNumber2(10);
-  cart.taxPrice = roundNumber2(0.15 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-
   const placeOrderHandler = async () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
@@ -73,6 +63,16 @@ const PlaceOrderPage = () => {
       toast.error(getError(err));
     }
   };
+
+  const roundNumber2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; //123.4567 => 123.46
+
+  cart.itemsPrice = roundNumber2(
+    cart.cartItems?.reduce((a, c) => a + c.quantity * c.price, 0)
+  );
+  cart.shippingPrice =
+    cart.itemsPrice > 100 ? roundNumber2(0) : roundNumber2(10);
+  cart.taxPrice = roundNumber2(0.15 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   useEffect(() => {
     if (!cart.paymentMethod) {

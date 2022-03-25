@@ -32,9 +32,7 @@ export const ACTIONS = {
 
 //デフォルト型　(reducer)
 const reducer = (state, action) => {
-  switch (
-    action.type //デフォルト型 (reducer)
-  ) {
+  switch (action.type) {
     case ACTIONS.CART_ADD_ITEM:
       // add to card
       const newItem = action.payload;

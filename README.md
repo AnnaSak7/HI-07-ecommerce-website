@@ -13,6 +13,12 @@ REQUIREMENTS :
 - Should be possible to create an order with a shopping cart or a single item
 - Workers at the store should be able to mark orders as packed and shipped
 
+### setup
+
+"name": "frontend",
+"proxy": "http://localhost:5000"
+in frontend package.json
+
 ### FetchProducts From Backend
 
 1. set proxy in package.json (need to set the proxy in package.json to access to backend in the frontend)

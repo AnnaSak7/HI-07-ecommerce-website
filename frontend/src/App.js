@@ -96,7 +96,7 @@ function App() {
               <Nav.Item>
                 <Link to="/cart" className="nav-link">
                   <BiShoppingBag size="2rem" padding="0" color="#fff" />
-                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0) > 0 && (
+                  {cart.cartItems?.reduce((a, c) => a + c.quantity, 0) > 0 && (
                     <Badge pill bg="danger">
                       {cart.cartItems.length}
                     </Badge>
@@ -115,7 +115,7 @@ function App() {
             <Route path="/shipping" element={<ShippingAddressPage />} />
             <Route path="/payment" element={<PaymentMethodPage />} />
             <Route path="/placeorder" element={<PlaceOrderPage />} />
-            <Route path="/oder/:id" element={<OrderPage />} />
+            <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>
