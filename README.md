@@ -159,6 +159,33 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 2. fetch order api in frontend
 3. show order information in 2 columns
 
+### Pay order by PayPal
+
+developer.paypal.com
+login / dashboard / use sandbox for testing
+
+1. generate paypal client id
+   (developer.paypal.com
+   login / dashboard / use sandbox for testing)
+   copy client id and put it in .env
+2. create api to return client id
+   in server.js ->
+   app.get('/api/keys/paypal', (req, rest) => {
+   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+   });
+3. install react-paypal-js (in frontend folder)
+   npm install @paypal/react-paypal-js
+4. use PayPalScriptProvider in index.js
+   in index.js
+   <PayPalScriptProvider deferLoading={true}>
+   <App />
+   </PayPalScriptProvider>
+5. use usePayPalScriptReducer in Order page
+6. implement loadPayPalScript function
+7. render paypal button
+8. implement onApprove payment function
+9. create pay order api in backend
+
 ### Search box and search page
 
 1. create search bar in the header.js
