@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["placeorder", "SIGNIN", "SIGNOUT", "toastify"]
+  "cSpell.words": [
+    "orderhistory",
+    "placeorder",
+    "SIGNIN",
+    "SIGNOUT",
+    "toastify"
+  ]
 }

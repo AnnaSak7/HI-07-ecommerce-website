@@ -13,7 +13,7 @@ const reducer = (state, action) => {
     case 'FETCH_REQUEST':
       return { ...state, loading: true };
     case 'FETCH_SUCCESS':
-      return { ...state, loading: false, order: action.payload };
+      return { ...state, orders: action.payload, loading: false };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
 
@@ -87,7 +87,7 @@ const OrderHistoryPage = () => {
                 <td>
                   <Button
                     type="button"
-                    variant="light"
+                    variant="outline-secondary"
                     onClick={() => navigate(`/order/${order._id}`)}
                   >
                     Details
