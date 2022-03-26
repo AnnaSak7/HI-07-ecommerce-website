@@ -2,11 +2,12 @@ import { createContext, useReducer } from 'react';
 
 export const Store = createContext();
 
-//デフォルト型　(reducer)
+// //デフォルト型　(reducer)
 const initialState = {
   userInfo: localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null,
+
   cart: {
     shippingAddress: localStorage.getItem('shippingAddress')
       ? JSON.parse(localStorage.getItem('shippingAddress'))
@@ -19,6 +20,11 @@ const initialState = {
       : [],
   },
 };
+
+// cart: {
+//   shippingAddress: localStorage.getItem('shippingAddress')
+//     ? JSON.parse(localStorage.getItem('shippingAddress'))
+//     : { location: {} },
 
 export const ACTIONS = {
   CART_ADD_ITEM: 'CART_ADD_ITEM',
@@ -34,6 +40,7 @@ export const ACTIONS = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.CART_ADD_ITEM:
+      console.log('CASE: CART_ADD_ITEM');
       // add to card
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
@@ -48,6 +55,7 @@ const reducer = (state, action) => {
       return { ...state, cart: { ...state.cart, cartItems } };
 
     case ACTIONS.CART_REMOVE_ITEM: {
+      console.log('CASE: CART_REMOVE_ITEM');
       const cartItems = state.cart.cartItems.filter(
         (item) => item._id !== action.payload._id
       );
@@ -56,11 +64,15 @@ const reducer = (state, action) => {
     }
 
     case ACTIONS.CART_CLEAR:
+      console.log('CASE: CART_CLEAR');
       return { ...state, cart: { ...state.cart, cartItems: [] } };
+
     case ACTIONS.USER_SIGNIN:
+      console.log('CASE: USER_SIGNIN');
       return { ...state, userInfo: action.payload };
 
     case ACTIONS.USER_SIGNOUT:
+      console.log('CASE: USER_SIGNOUT');
       return {
         ...state,
         userInfo: null,
@@ -69,6 +81,7 @@ const reducer = (state, action) => {
       };
 
     case ACTIONS.SAVE_SHIPPING_ADDRESS:
+      console.log('CASE: SAVE_SHIPPING_ADDRESS');
       return {
         ...state,
         cart: {
@@ -78,10 +91,11 @@ const reducer = (state, action) => {
       };
 
     case ACTIONS.SAVE_PAYMENT_METHOD:
+      console.log('CASE: SAVE_PAYMENT_METHOD');
       return {
         ...state,
         cart: {
-          ...state,
+          ...state.cart,
           paymentMethod: action.payload,
         },
       };

@@ -8,10 +8,16 @@ import { ACTIONS, Store } from '../Store';
 const ShippingAddressPage = () => {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  console.log('state in shippingaddresspage ', state);
+  // const userInfo = state.userInfo;
+  // console.log('userInfo : ', userInfo);
+  // const shippingAddress = state.cart.cart.shippingAddress;
+  // console.log('shippingAddress : ', shippingAddress);
   const {
     userInfo,
     cart: { shippingAddress },
   } = state;
+
   const [fullName, setFullName] = useState(shippingAddress.fullName || '');
   const [address, setAddress] = useState(shippingAddress.address || '');
   const [city, setCity] = useState(shippingAddress.city || '');

@@ -186,6 +186,12 @@ login / dashboard / use sandbox for testing
 8. implement onApprove payment function
 9. create pay order api in backend
 
+### Order History
+
+1. create order page
+2. create order history api
+3. use api in the frontend9
+
 ### Search box and search page
 
 1. create search bar in the header.js

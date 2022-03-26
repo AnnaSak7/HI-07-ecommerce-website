@@ -32,7 +32,11 @@ const PlaceOrderPage = () => {
     loading: false,
   });
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  console.log('state', state);
   const { cart, userInfo } = state;
+  // const { cart } = state.cart;
+  // const { userInfo } = state.cart;
+  console.log('cart1', cart);
 
   const placeOrderHandler = async () => {
     try {
@@ -80,6 +84,9 @@ const PlaceOrderPage = () => {
     }
   }, [cart, navigate]);
 
+  useEffect(() => {
+    console.log('cart', cart);
+  }, []);
   return (
     <>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
