@@ -192,6 +192,13 @@ login / dashboard / use sandbox for testing
 2. create order history api
 3. use api in the frontend9
 
+### Profile page
+
+1. get user info from contet
+2. show user information
+3. create user update api
+4. update user info
+
 ### Search box and search page
 
 1. create search bar in the header.js
