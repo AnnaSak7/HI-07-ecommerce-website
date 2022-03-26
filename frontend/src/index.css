@@ -83,8 +83,31 @@ main {
   max-width: 600px;
 }
 
+/* sidebar */
+.site-container {
+  transition: 0.4s;
+}
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+}
+.navbar-brand {
+  font-weight: bold;
+}
+.active-container {
+  margin-left: 240px;
+}
+
+.active-nav {
+  left: 0;
+}
+
 /* Search */
-.search button {
+/* .search button {
   border-radius: 0 0.5rem 0.5rem 0;
   border: none;
   margin-right: 0.5rem;
@@ -106,4 +129,4 @@ main {
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #000;
   color: #000;
-}
+} */

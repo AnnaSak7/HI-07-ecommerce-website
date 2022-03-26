@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
+import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { BiSearch } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBox = (props) => {
-  const [name, setName] = useState('');
-
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
-    props.history.push(`/search/name/${name}`);
+    navigate(query ? `/search/?query=${query}` : 'search');
   };
   return (
-    <form className="search" onSubmit={submitHandler}>
-      <div className="row" style={{ flexWrap: 'nowrap' }}>
-        <input
+    <Form className="d-flex me-auto" onSubmit={submitHandler}>
+      <InputGroup>
+        <FormControl
           type="text"
           name="q"
           id="q"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button type="submit">
-          <BiSearch size="2rem" padding="0" color="#000" />
-        </button>
-      </div>
-    </form>
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="search products..."
+          aria-label="Search Products"
+          aria-describedby="button-search"
+        ></FormControl>
+        <Button variant="outlined-success" type="submit" id="button-search">
+          <i className="fas fa-search"></i>
+        </Button>
+      </InputGroup>
+    </Form>
   );
 };
 

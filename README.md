@@ -199,6 +199,8 @@ login / dashboard / use sandbox for testing
 3. create user update api
 4. update user info
 
+### Side bar and search box
+
 ### Search box and search page
 
 1. create search bar in the header.js
