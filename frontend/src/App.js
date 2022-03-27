@@ -22,6 +22,9 @@ import ProfilePage from './pages/ProfilePage';
 import getError from './utils';
 import axios from 'axios';
 import SearchPage from './pages/SearchPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import DashboardPage from './pages/DashboardPage';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -127,6 +130,22 @@ function App() {
                     Sign In
                   </Link>
                 )}
+                {userInfo && userInfo.isAdmin && (
+                  <NavDropdown title="admin" id="admin-nav-dropdown">
+                    <LinkContainer to="/admin/dashboard">
+                      <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/productlist">
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/orders">
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/userlist">
+                      <NavDropdown.Item>Users</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                )}
                 {/* <Nav.Item>
                 <Link to="/user" className="nav-link">
                   <BiUserCircle size="2rem" padding="0" color="#fff" />
@@ -177,12 +196,42 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/signin" element={<SigninPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/shipping" element={<ShippingAddressPage />} />
             <Route path="/payment" element={<PaymentMethodPage />} />
             <Route path="/placeorder" element={<PlaceOrderPage />} />
-            <Route path="/order/:id" element={<OrderPage />} />
-            <Route path="/orderhistory" element={<OrderHistoryPage />} />
+            <Route
+              path="/order/:id"
+              element={
+                <ProtectedRoute>
+                  <OrderPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orderhistory"
+              element={
+                <ProtectedRoute>
+                  <OrderHistoryPage />
+                </ProtectedRoute>
+              }
+            />
+            {/* Admin Routes */}
+            <Route
+              path="/admin/dashboard"
+              element={
+                <AdminRoute>
+                  <DashboardPage />
+                </AdminRoute>
+              }
+            />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>

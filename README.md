@@ -194,7 +194,7 @@ login / dashboard / use sandbox for testing
 
 ### Profile page
 
-1. get user info from contet
+1. get user info from content
 2. show user information
 3. create user update api
 4. update user info
@@ -209,6 +209,12 @@ login / dashboard / use sandbox for testing
 1. show filters
 2. create api for searching products
 3. display results
+
+### Admin menu
+
+1. define protected route component
+2. define admin route component
+3. add menu for admin in header
 
 ### Add Advanced Search Filter
 
