@@ -21,6 +21,7 @@ import OrderHistoryPage from './pages/OrderHistoryPage';
 import ProfilePage from './pages/ProfilePage';
 import getError from './utils';
 import axios from 'axios';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -173,6 +174,7 @@ function App() {
           <Routes>
             <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="/signin" element={<SigninPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/profile" element={<ProfilePage />} />

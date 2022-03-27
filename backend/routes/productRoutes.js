@@ -9,6 +9,75 @@ productRouter.get('/', async (req, res) => {
   res.send(products);
 });
 
+const PAGE_SIZE = 3;
+productRouter.get(
+  '/search',
+  expressAsyncHandler(async (req, res) => {
+    const { query } = req;
+    const pageSize = query.pageSize || PAGE_SIZE;
+    const page = query.page || 1;
+    const category = query.category || '';
+    const price = query.price || '';
+    const order = query.corder || '';
+    const searchQuery = query.query || '';
+
+    const queryFilter =
+      searchQuery && searchQuery !== 'all'
+        ? {
+            name: {
+              $regex: searchQuery,
+              $options: 'i', //case insensitive
+            },
+          }
+        : {};
+
+    const categoryFilter =
+      searchQuery && searchQuery !== 'all' ? { category } : {};
+
+    const priceFilter =
+      price && price !== 'all'
+        ? {
+            // 1-100
+            price: {
+              $gte: Number(price.split('-')[0]),
+              $lte: Number(price.split('-')[1]),
+            },
+          }
+        : {};
+
+    const sortOrder =
+      order === 'featured'
+        ? { featured: -1 }
+        : order === 'lowest'
+        ? { price: 1 }
+        : order === 'newest'
+        ? { createdAt: -1 }
+        : { _id: -1 };
+
+    const products = await Product.find({
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+    })
+      .sort(sortOrder)
+      .skip(pageSize * (page - 1))
+      .limit(pageSize);
+
+    const countProducts = await Product.countDocuments({
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+    });
+
+    res.send({
+      products,
+      countProducts,
+      page,
+      pages: Math.ceil(countProducts / pageSize),
+    });
+  })
+);
+
 productRouter.get(
   '/categories',
   expressAsyncHandler(async (req, res) => {

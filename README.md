@@ -201,12 +201,14 @@ login / dashboard / use sandbox for testing
 
 ### Side bar and search box
 
-### Search box and search page
+1. add sidebar
+2. add search box
 
-1. create search bar in the header.js
-2. handle submit form
-3. edit parse url to get query string
-4. update product list api for search by name
+### Search page
+
+1. show filters
+2. create api for searching products
+3. display results
 
 ### Add Advanced Search Filter
 
