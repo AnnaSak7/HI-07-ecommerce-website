@@ -84,9 +84,9 @@ const PlaceOrderPage = () => {
     }
   }, [cart, navigate]);
 
-  useEffect(() => {
-    console.log('cart', cart);
-  }, []);
+  // useEffect(() => {
+  //   console.log('cart', cart);
+  // }, []);
   return (
     <>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>

@@ -92,7 +92,7 @@ const ProductListPage = () => {
         </Col>
         <Col className="col text-end">
           <div>
-            <Button type="button" onClick={createHandler}>
+            <Button variant="dark" type="button" onClick={createHandler}>
               Create Product
             </Button>
           </div>
@@ -109,18 +109,28 @@ const ProductListPage = () => {
             <thead>
               <tr>
                 <th>ID</th>
+                <th>CATEGORY</th>
                 <th>NAME</th>
                 <th>PRICE</th>
-                <th>CATEGORY</th>
+                <th>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
+                  <td>{product.category}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
-                  <td>{product.category}</td>
+                  <td>
+                    <Button
+                      type="button"
+                      variant="dark"
+                      onClick={() => navigate(`/admin/product/${product._id}`)}
+                    >
+                      Edit
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>

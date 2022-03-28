@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
-import { BiSearch } from 'react-icons/bi';
+//import { BiSearch } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
 const SearchBox = (props) => {

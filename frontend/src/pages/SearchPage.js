@@ -43,7 +43,7 @@ const prices = [
     value: '101-200',
   },
   {
-    name: '201 -300 SEK',
+    name: '201 - 300 SEK',
     value: '201-300',
   },
 ];
