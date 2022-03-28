@@ -228,6 +228,12 @@ login / dashboard / use sandbox for testing
 2. implement backend api
 3. fetch data
 
+### Create Product feature in admin
+
+1. create products button
+2. implement backend api
+3. handle on click
+
 ### Add Advanced Search Filter
 
 1. filter by category
