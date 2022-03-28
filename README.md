@@ -103,7 +103,7 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 3. define generateToken
 
 - npm install express-async-handler
-  (you can catch error in the async function inside this. If there is an error in this function, you can handle it in the server tactics)
+  (you can catch error in the async function inside this. If there is an error in this function, you can handle it in the server tactics ----Saves you writing your own try/catch for async/await and passes error on to next)
 
 - npm install jsonwebtoken
   (sending a token along with the object in res.send)
@@ -216,11 +216,17 @@ login / dashboard / use sandbox for testing
 2. define admin route component
 3. add menu for admin in header
 
-### dashboard page
+### Dashboard page
 
 1. create dashboard ui
 2. implement backend api
 3. connect ui to backend
+
+### Manage products in admin area
+
+1. create products list ui
+2. implement backend api
+3. fetch data
 
 ### Add Advanced Search Filter
 
