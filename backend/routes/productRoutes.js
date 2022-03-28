@@ -31,7 +31,32 @@ productRouter.post(
   })
 );
 
-const PAGE_SIZE = 3;
+productRouter.put(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (product) {
+      product.name = req.body.name;
+      product.number = req.body.number;
+      product.description = req.body.description;
+      product.slug = req.body.slug;
+      product.category = req.body.category;
+      product.image = req.body.image;
+      product.price = req.body.price;
+      product.countInStock = req.body.countInStock;
+      product.breed = req.body.breed;
+      await product.save();
+      res.send({ message: 'Product Updated' });
+    } else {
+      res.status(404).send({ message: 'Product Not Found' });
+    }
+  })
+);
+
+const PAGE_SIZE = 6;
 
 productRouter.get(
   '/admin',

@@ -240,6 +240,11 @@ login / dashboard / use sandbox for testing
 2. create edit product ui
 3. display product info in the input boxes
 
+### Implement update product in admin
+
+1. create edit product backend api
+2. handle update click
+
 ### Add Advanced Search Filter
 
 1. filter by category

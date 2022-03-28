@@ -112,6 +112,7 @@ const ProductListPage = () => {
                 <th>CATEGORY</th>
                 <th>NAME</th>
                 <th>PRICE</th>
+                <th>#inSTOCK</th>
                 <th>ACTIONS</th>
               </tr>
             </thead>
@@ -122,6 +123,7 @@ const ProductListPage = () => {
                   <td>{product.category}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
+                  <td>{product.countInStock}</td>
                   <td>
                     <Button
                       type="button"
