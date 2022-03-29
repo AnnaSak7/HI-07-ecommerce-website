@@ -27,6 +27,7 @@ import DashboardPage from './pages/DashboardPage';
 import AdminRoute from './components/AdminRoute';
 import ProductListPage from './pages/ProductListPage';
 import ProductEditPage from './pages/ProductEditPage';
+import Footer from './components/Footer';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -84,31 +85,6 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <SearchBox />
-              {/* <div>
-              <Routes>
-                <Route
-                  render={({ history }) => <SearchBox history={history} />}
-                ></Route>
-              </Routes>
-            </div> */}
-
-              {/* <Nav className="justify-content-center" activeKey="/home">
-              <Nav.Item>
-                <Nav.Link href="/home">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-1">Shop</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="link-2">About</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="disabled" disabled>
-                  Contact
-                </Nav.Link>
-              </Nav.Item>
-            </Nav> */}
-
               <Nav className="me-auto w-100 justify-content-end">
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
@@ -253,9 +229,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </main>
-        <footer>
-          <div className="text-center">All rights reserved</div>
-        </footer>
+        <Footer />
       </div>
     </BrowserRouter>
   );

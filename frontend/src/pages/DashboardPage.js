@@ -49,7 +49,7 @@ const DashboardPage = () => {
   }, [userInfo]);
   return (
     <div>
-      <h1>DashboardPage</h1>;
+      <h1>DashboardPage</h1>
       {loading ? (
         <LoadingBox />
       ) : error ? (

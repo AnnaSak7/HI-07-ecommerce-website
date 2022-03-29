@@ -13,6 +13,7 @@ const orderSchema = new mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Product',
           required: true,
+          //Schema.Types.ObjectId型はObjectId型を指定,これは外部スキーマのObjectId（参照）を保存。refには外部スキーマ名を指定。
         },
       },
     ],

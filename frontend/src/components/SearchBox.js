@@ -22,7 +22,7 @@ const SearchBox = (props) => {
           aria-label="Search Products"
           aria-describedby="button-search"
         ></FormControl>
-        <Button variant="outlined-success" type="submit" id="button-search">
+        <Button variant="dark" type="submit" id="button-search">
           <i className="fas fa-search"></i>
         </Button>
       </InputGroup>
