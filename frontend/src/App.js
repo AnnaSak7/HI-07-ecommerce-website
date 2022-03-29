@@ -28,6 +28,7 @@ import AdminRoute from './components/AdminRoute';
 import ProductListPage from './pages/ProductListPage';
 import ProductEditPage from './pages/ProductEditPage';
 import Footer from './components/Footer';
+import OrderListPage from './pages/OrderListPage';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -207,6 +208,14 @@ function App() {
               element={
                 <AdminRoute>
                   <DashboardPage />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/orders"
+              element={
+                <AdminRoute>
+                  <OrderListPage />
                 </AdminRoute>
               }
             />

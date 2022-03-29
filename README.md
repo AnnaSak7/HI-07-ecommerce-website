@@ -252,6 +252,12 @@ login / dashboard / use sandbox for testing
 2. implement backend api
 3. handle on click
 
+### List Orders in admin
+
+1. create order list page
+2. implement backend api
+3. fetch and display orders
+
 ### Add Advanced Search Filter
 
 1. filter by category

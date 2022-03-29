@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -129,6 +130,9 @@ const ProductListPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Product List</title>
+      </Helmet>
       <Row>
         <Col>
           <h1>Products</h1>
