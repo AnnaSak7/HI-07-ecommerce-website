@@ -2,7 +2,8 @@
 
 ### MERN ECOMMERCE WEBSITE
 
-##Brief : SHOPPING
+## Brief : SHOPPING
+
 The undisclosed brick and mortar store has decided it's time to go online! To be able to give all their customers the best experience, regardless if they're buying from their ph9one or their smart speaker they want an API to easily support and extend their offering.
 
 REQUIREMENTS :
@@ -244,6 +245,12 @@ login / dashboard / use sandbox for testing
 
 1. create edit product backend api
 2. handle update click
+
+### Delete product
+
+1. show delete button
+2. implement backend api
+3. handle on click
 
 ### Add Advanced Search Filter
 
