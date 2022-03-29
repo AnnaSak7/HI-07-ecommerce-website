@@ -67,7 +67,7 @@ const OrderListPage = () => {
               <th>DATE</th>
               <th>TOTAL</th>
               <th>PAID</th>
-              <th>DELIVERED</th>
+              <th>SHIPPED</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -80,9 +80,7 @@ const OrderListPage = () => {
                 <td>{order.totalPrice.toFixed(2)}</td>
                 <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'NO'}</td>
                 <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : 'NO'}
+                  {order.isShipped ? order.shippedAt.substring(0, 10) : 'NO'}
                 </td>
                 <td>
                   <Button

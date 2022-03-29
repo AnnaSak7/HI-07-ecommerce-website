@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import { Card, Col, ListGroup, Row } from 'react-bootstrap';
+import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
@@ -26,7 +26,14 @@ const reducer = (state, action) => {
       return { ...state, loadingPay: false };
     case 'PAY_RESET':
       return { ...state, loadingPay: false, successPay: false };
-
+    case 'DELIVER_REQUEST':
+      return { ...state, loadingDeliver: true };
+    case 'DELIVER_SUCCESS':
+      return { ...state, loadingDeliver: false, successDeliver: true };
+    case 'DELIVER_FAIL':
+      return { ...state, loadingDeliver: false, errorDelive: action.payload };
+    case 'DELIVER_RESET':
+      return { ...state, loadingDeliver: false, successDeliver: false };
     default:
       return state;
   }
@@ -40,14 +47,24 @@ const OrderPage = () => {
   const { id: orderId } = params;
   const navigate = useNavigate();
 
-  const [{ loading, error, order, successPay, loadingPay }, dispatch] =
-    useReducer(reducer, {
-      loading: true,
-      order: {},
-      error: '',
-      successPay: false,
-      loadingPay: false,
-    });
+  const [
+    {
+      loading,
+      error,
+      order,
+      successPay,
+      loadingPay,
+      loadingDeliver,
+      successDeliver,
+    },
+    dispatch,
+  ] = useReducer(reducer, {
+    loading: true,
+    order: {},
+    error: '',
+    successPay: false,
+    loadingPay: false,
+  });
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -105,28 +122,62 @@ const OrderPage = () => {
     if (!userInfo) {
       return navigate('/login');
     }
-    if (!order._id || successPay || (order._id && order._id !== orderId)) {
+    if (
+      !order._id ||
+      successDeliver ||
+      successPay ||
+      (order._id && order._id !== orderId)
+    ) {
       fetchOrder();
       if (successPay) {
         dispatch({ type: 'PAY_RESET' });
       }
-    } else {
-      const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'SEK',
-          },
-        });
-        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
-      };
-      loadPaypalScript();
+      if (successDeliver) {
+        dispatch({ type: 'DELIVER_RESET' });
+      } else {
+        const loadPaypalScript = async () => {
+          const { data: clientId } = await axios.get('/api/keys/paypal', {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          });
+          paypalDispatch({
+            type: 'resetOptions',
+            value: {
+              'client-id': clientId,
+              currency: 'SEK',
+            },
+          });
+          paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
+        };
+        loadPaypalScript();
+      }
     }
-  }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
+  }, [
+    order,
+    userInfo,
+    orderId,
+    navigate,
+    paypalDispatch,
+    successPay,
+    successDeliver,
+  ]);
+
+  const deliverOrderHandler = async () => {
+    try {
+      dispatch({ type: 'DELIVER_REQUEST' });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/deliver`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: 'DELIVER_SUCCESS', payload: data });
+      toast.success('Order is shipped');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'DELIVER_FAIL' });
+    }
+  };
 
   return loading ? (
     <LoadingBox></LoadingBox>
@@ -151,12 +202,12 @@ const OrderPage = () => {
                 {order.shippingAddress.postalCode},
                 {order.shippingAddress.country}
               </Card.Text>
-              {order.isDelivered ? (
+              {order.isShipped ? (
                 <MessageBox severity="success">
-                  Delivered at {order.deliverAt}
+                  Shipped at {order.shippedAt}
                 </MessageBox>
               ) : (
-                <MessageBox severity="error">Not Delivered</MessageBox>
+                <MessageBox severity="error">Not Shipped</MessageBox>
               )}
             </Card.Body>
           </Card>
@@ -242,6 +293,16 @@ const OrderPage = () => {
                     </div>
                   )}
                   {loadingPay && <LoadingBox></LoadingBox>}
+                </ListGroup.Item>
+              )}
+              {userInfo.isAdmin && order.isPaid && !order.isShipped && (
+                <ListGroup.Item>
+                  {loadingDeliver && <LoadingBox></LoadingBox>}
+                  <div className="d-grid">
+                    <Button type="button" onClick={deliverOrderHandler}>
+                      Deliver Order
+                    </Button>
+                  </div>
                 </ListGroup.Item>
               )}
             </Card.Body>

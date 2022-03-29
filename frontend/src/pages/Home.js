@@ -48,7 +48,7 @@ const Home = () => {
       <Helmet>
         <title>HTTP DOGS</title>
       </Helmet>
-      <h1>New Arrivals</h1>
+      <h1 className="home-title">New Arrivals</h1>
       <div className="products">
         {loading ? (
           <LoadingBox />

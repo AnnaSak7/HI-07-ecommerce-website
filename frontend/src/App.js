@@ -69,12 +69,12 @@ function App() {
         <ToastContainer position="top-center" limit={1} />
         <header className="App-header">
           <Navbar
-            style={{ backgroundColor: '#000' }}
-            variant="dark"
+            // style={{ backgroundColor: '#000' }}
+            // variant="dark"
             expand="lg"
           >
             <Button
-              style={{ backgroundColor: '#000' }}
+              style={{ marginRight: '1rem' }}
               variant="dark"
               onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
             >
@@ -132,7 +132,7 @@ function App() {
               </Nav.Item> */}
                 <Nav.Item>
                   <Link to="/cart" className="nav-link">
-                    <BiShoppingBag size="2rem" padding="0" color="#fff" />
+                    <BiShoppingBag size="2rem" padding="0" color="#000" />
                     {cart.cartItems?.reduce((a, c) => a + c.quantity, 0) >
                       0 && (
                       <Badge pill bg="danger">

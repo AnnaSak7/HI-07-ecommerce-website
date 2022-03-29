@@ -258,6 +258,12 @@ login / dashboard / use sandbox for testing
 2. implement backend api
 3. fetch and display orders
 
+### Deliver order
+
+1. add deliver button
+2. handle click action
+3. implement backend api for deliver
+
 ### Add Advanced Search Filter
 
 1. filter by category
