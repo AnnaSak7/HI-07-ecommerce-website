@@ -172,6 +172,9 @@ footer.nb-footer .footer-info-single ul li a {
 footer.nb-footer .footer-info-single ul li a:hover {
   color: #ca5119;
 }
+footer.nb-footer .footer-info-single .social-media ul li a:hover {
+  color: #fff;
+}
 footer.nb-footer .footer-info-single p {
   font-size: 13px;
   line-height: 20px;

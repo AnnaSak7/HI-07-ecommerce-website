@@ -88,22 +88,22 @@ const Footer = () => {
                     <div className="social-media">
                       <ul className="list-inline">
                         <li>
-                          <a href="/" title="">
+                          <a href="/" title="Facebook">
                             <FaFacebookF />
                           </a>
                         </li>
                         <li>
-                          <a href="/" title="">
+                          <a href="/" title="Instagrom">
                             <FaInstagram />
                           </a>
                         </li>
                         <li>
-                          <a href="/" title="">
+                          <a href="/" title="Twitter">
                             <FaTwitter />
                           </a>
                         </li>
                         <li>
-                          <a href="/" title="">
+                          <a href="/" title="LinkedIn">
                             <FaLinkedinIn />
                           </a>
                         </li>
