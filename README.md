@@ -258,11 +258,11 @@ login / dashboard / use sandbox for testing
 2. implement backend api
 3. fetch and display orders
 
-### Deliver order
+### Ship order
 
-1. add deliver button
+1. add ship button
 2. handle click action
-3. implement backend api for deliver
+3. implement backend api for shipping
 
 ### Publish on Heroku
 
