@@ -300,7 +300,7 @@ const OrderPage = () => {
                   {loadingDeliver && <LoadingBox></LoadingBox>}
                   <div className="d-grid">
                     <Button type="button" onClick={deliverOrderHandler}>
-                      Deliver Order
+                      Ship Order
                     </Button>
                   </div>
                 </ListGroup.Item>

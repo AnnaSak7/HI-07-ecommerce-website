@@ -66,13 +66,29 @@ const Product = (props) => {
     });
   };
 
+  const mouseEnterHandler = (e) => {
+    let src = product.image;
+    let split = src.split('');
+    split.splice(8, 0, 'r');
+    let join = split.join('');
+
+    e.currentTarget.src = join;
+  };
+  const mouseLeaveHandler = (e) => {
+    e.currentTarget.src = product.image;
+  };
   return (
     <Card className="product" key={product.slug}>
-      <div className="imgContainer">
-        <Link to={`/product/${product.slug}`}>
-          <img src={product.image} alt={product.name} />
-        </Link>
-      </div>
+      {/* <div className="imgContainer"> */}
+      <Link to={`/product/${product.slug}`}>
+        <img
+          src={product.image}
+          alt={product.name}
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+        />
+      </Link>
+      {/* </div> */}
       <Card.Body>
         <Link
           to={`/product/${product.slug}`}

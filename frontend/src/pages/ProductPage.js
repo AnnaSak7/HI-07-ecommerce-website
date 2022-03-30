@@ -134,7 +134,9 @@ const ProductPage = () => {
           <h2>
             <em>{product.description}</em>
           </h2>
-          <p style={{ color: 'blue' }}>{product.price} kr</p>
+          <p style={{ color: 'blue', fontSize: '1.5rem' }}>
+            {product.price} SEK
+          </p>
 
           <p>
             {product.countInStock > 0 ? (
