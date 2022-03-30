@@ -1,0 +1,21 @@
+{
+  "name": "hi-07-ecommerce-website",
+  "version": "1.0.0",
+  "description": "### MERN ECOMMERCE WEBSITE",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaSak7/HI-07-ecommerce-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaSak7/HI-07-ecommerce-website/issues"
+  },
+  "homepage": "https://github.com/AnnaSak7/HI-07-ecommerce-website#readme"
+}

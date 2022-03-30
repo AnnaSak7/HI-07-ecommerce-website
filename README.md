@@ -264,8 +264,19 @@ login / dashboard / use sandbox for testing
 2. handle click action
 3. implement backend api for deliver
 
-### Add Advanced Search Filter
+### Publish on Heroku
 
-1. filter by category
-2. filter by price range
-3. filter by average rating
+1. create and config node project - npm init (root directory)
+   add in package.json (root)
+   "scripts": {
+   "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+   "start": "node backend/server.js",
+   }
+2. serve build folder in frontend folder - npm run build(root)
+3. create heroku account
+4. connect it to github
+5. create mongodb atlas database
+6. set database connection in heroku env variables
+7. copy .env in backend and paste in the root directory
+8. npm start (root) - check if the app is running on the localhost
+9. commit and push
