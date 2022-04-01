@@ -299,7 +299,11 @@ const OrderPage = () => {
                 <ListGroup.Item>
                   {loadingDeliver && <LoadingBox></LoadingBox>}
                   <div className="d-grid">
-                    <Button type="button" onClick={deliverOrderHandler}>
+                    <Button
+                      variant="dark"
+                      type="button"
+                      onClick={deliverOrderHandler}
+                    >
                       Ship Order
                     </Button>
                   </div>

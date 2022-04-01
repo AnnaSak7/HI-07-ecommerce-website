@@ -93,7 +93,10 @@ const Footer = () => {
                           </a>
                         </li>
                         <li>
-                          <a href="/" title="Instagrom">
+                          <a
+                            href="https://www.instagram.com/annakaiyamato/"
+                            title="Instagrom"
+                          >
                             <FaInstagram />
                           </a>
                         </li>

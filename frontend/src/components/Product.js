@@ -79,16 +79,16 @@ const Product = (props) => {
   };
   return (
     <Card className="product" key={product.slug}>
-      {/* <div className="imgContainer"> */}
-      <Link to={`/product/${product.slug}`}>
-        <img
-          src={product.image}
-          alt={product.name}
-          onMouseEnter={mouseEnterHandler}
-          onMouseLeave={mouseLeaveHandler}
-        />
-      </Link>
-      {/* </div> */}
+      <div className="imgContainer">
+        <Link to={`/product/${product.slug}`}>
+          <img
+            src={product.image}
+            alt={product.name}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+          />
+        </Link>
+      </div>
       <Card.Body>
         <Link
           to={`/product/${product.slug}`}

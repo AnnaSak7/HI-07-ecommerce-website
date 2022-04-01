@@ -48,13 +48,11 @@ main {
   /* padding: 2rem 2rem 0 2rem; */
 }
 
-.imgContainer {
-  background-color: #f0f0f0;
-  padding: 2rem;
-}
+/* .imgContainer {
+  max-height: 324px;
+} */
 
 .product img {
-  width: 100%;
   max-width: 250px;
   filter: drop-shadow(10px 10px 2px #b4b2b2);
 }
@@ -70,8 +68,8 @@ main {
 }
 
 .img-large {
-  max-width: 100%;
-  filter: drop-shadow(10px 10px 2px #b4b2b2);
+  max-width: 80%;
+  /* filter: drop-shadow(10px 10px 2px #b4b2b2); */
 }
 
 .img-thumbnail {

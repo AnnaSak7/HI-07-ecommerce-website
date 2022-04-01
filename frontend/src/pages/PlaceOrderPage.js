@@ -36,6 +36,7 @@ const PlaceOrderPage = () => {
   const { cart, userInfo } = state;
   // const { cart } = state.cart;
   // const { userInfo } = state.cart;
+  console.log('userInfo : ', userInfo);
   console.log('cart1', cart);
 
   const placeOrderHandler = async () => {
