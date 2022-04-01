@@ -2,6 +2,8 @@
 
 ### MERN ECOMMERCE WEBSITE
 
+https://http-dog-posters.herokuapp.com/
+
 ## Brief : SHOPPING
 
 The undisclosed brick and mortar store has decided it's time to go online! To be able to give all their customers the best experience, regardless if they're buying from their ph9one or their smart speaker they want an API to easily support and extend their offering.
@@ -14,6 +16,8 @@ REQUIREMENTS :
 - Should be possible to create an order with a shopping cart or a single item
 - Workers at the store should be able to mark orders as packed and shipped
 
+## NOTES:
+
 ### setup
 
 "name": "frontend",
@@ -22,16 +26,16 @@ in frontend package.json
 
 ### FetchProducts From Backend
 
-1. set proxy in package.json (need to set the proxy in package.json to access to backend in the frontend)
-2. npm install axios
-3. use effect hook
-4. use reducer hook
+- set proxy in package.json (need to set the proxy in package.json to access to backend in the frontend)
+- npm install axios
+- use effect hook
+- use reducer hook
 
 ### Manage State By Reducer Hook
 
-1. define reducer
-2. update fetch data
-3. get state from useReducer
+- define reducer
+- update fetch data
+- get state from useReducer
 
 ### Bootstrap
 
@@ -42,8 +46,8 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 
 ### Create Product Details Page
 
-1. fetch product from backend
-2. create 3 columns for image, info, action
+- fetch product from backend
+- create 3 columns for image, info, action
 
 ### Change names of headings
 
@@ -52,10 +56,10 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 
 ### Loading and Message Component
 
-1. create loading component
-2. use spinner component
-3. create message component
-4. create utils.js to define getError function
+- create loading component
+- use spinner component
+- create message component
+- create utils.js to define getError function
 
 ### Connect to MongoDB Database
 
@@ -64,205 +68,205 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 
 ### Seed data
 
-1. create Product model
-2. create User model
-3. create seed route
-4. use route in server.js
-5. seed sample product
+- create Product model
+- create User model
+- create seed route
+- use route in server.js
+- seed sample product
 
 ### Implement Add to Cart
 
-1. create react context (to manage state globally)
-2. define reducer
-3. create store provider
-4. implement add to cart button click handler
+- create react context (to manage state globally)
+- define reducer
+- create store provider
+- implement add to cart button click handler
 
-5. check exist item in the cart
-6. check count in stock in backend
+- check exist item in the cart
+- check count in stock in backend
 
 ### Cart page
 
-1. create 2 columns
-2. display items list
-3. create action column
-4. click handler for inc/dec item
-5. click handler for remove item
-6. click handler for checkout
+- create 2 columns
+- display items list
+- create action column
+- click handler for inc/dec item
+- click handler for remove item
+- click handler for checkout
 
 ### sign in page
 
-1. create sign in form
-2. add email and password
-3. add sign-in button
+- create sign in form
+- add email and password
+- add sign-in button
 
-- npm i bcryptjs
+-- npm i bcryptjs
 
 ### Sign in backend API
 
-1. create signin api
-2. npm install jsonwebtoken
-3. define generateToken
-
-- npm install express-async-handler
-  (you can catch error in the async function inside this. If there is an error in this function, you can handle it in the server tactics ----Saves you writing your own try/catch for async/await and passes error on to next)
-
+- create signin api
 - npm install jsonwebtoken
-  (sending a token along with the object in res.send)
+- define generateToken
 
-- add Advanced Rest Client in Chrome
+-- npm install express-async-handler
+(you can catch error in the async function inside this. If there is an error in this function, you can handle it in the server tactics ----Saves you writing your own try/catch for async/await and passes error on to next)
+
+-- npm install jsonwebtoken
+(sending a token along with the object in res.send)
+
+-- add Advanced Rest Client in Chrome
 
 ### Complete sign in page with functionality
 
-1. handle submit action
-2. save token in store and local storage
-3. show user name in header
+- handle submit action
+- save token in store and local storage
+- show user name in header
 
-- npm i react-toastify
-  (adding nicer notifications)
-  App.js : import 'react-toastify/dist/ReactToastify.css'
-  <ToastContainer position="bottom-center" limit={1} />
-  SigninPage.js : toast.error(getError(err));
+-- npm i react-toastify
+(adding nicer notifications)
+App.js : import 'react-toastify/dist/ReactToastify.css'
+<ToastContainer position="bottom-center" limit={1} />
+SigninPage.js : toast.error(getError(err));
 
 ### Shipping page
 
-1. create form inputs
-2. handle save shipping address
-3. add checkout wizard bar
+- create form inputs
+- handle save shipping address
+- add checkout wizard bar
 
 ### Sign up page
 
-1. create input forms
-2. handle submit
-3. create backend api
+- create input forms
+- handle submit
+- create backend api
 
 ### Implement select payment method page
 
-1. create input form
-2. handle submit
+- create input form
+- handle submit
 
 ### Place order page
 
-1. show cart items, payment and address
-2. handle place order action
-3. create order create api
+- show cart items, payment and address
+- handle place order action
+- create order create api
 
 ### Place order action
 
-1. handle place order action
-2. create oder create api
+- handle place order action
+- create oder create api
 
-- when 'authorization: Bearer undefine', check localStorage to see if the user information is correctly stored.
-- when taking out hard coded \_id from data.js, check the schema. (it was \_id: { type: String } when I get error message. take that out then it will generate objectID)
+-- when 'authorization: Bearer undefine', check localStorage to see if the user information is correctly stored.
+-- when taking out hard coded \_id from data.js, check the schema. (it was \_id: { type: String } when I get error message. take that out then it will generate objectID)
 
 ### Order Screen
 
-1. create backend api for oder/:id
-2. fetch order api in frontend
-3. show order information in 2 columns
+- create backend api for oder/:id
+- fetch order api in frontend
+- show order information in 2 columns
 
 ### Pay order by PayPal
 
 developer.paypal.com
 login / dashboard / use sandbox for testing
 
-1. generate paypal client id
-   (developer.paypal.com
-   login / dashboard / use sandbox for testing)
-   copy client id and put it in .env
-2. create api to return client id
-   in server.js ->
-   app.get('/api/keys/paypal', (req, rest) => {
-   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
-   });
-3. install react-paypal-js (in frontend folder)
-   npm install @paypal/react-paypal-js
-4. use PayPalScriptProvider in index.js
-   in index.js
-   <PayPalScriptProvider deferLoading={true}>
-   <App />
-   </PayPalScriptProvider>
-5. use usePayPalScriptReducer in Order page
-6. implement loadPayPalScript function
-7. render paypal button
-8. implement onApprove payment function
-9. create pay order api in backend
+- generate paypal client id
+  (developer.paypal.com
+  login / dashboard / use sandbox for testing)
+  copy client id and put it in .env
+- create api to return client id
+  in server.js ->
+  app.get('/api/keys/paypal', (req, rest) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+  });
+- install react-paypal-js (in frontend folder)
+  npm install @paypal/react-paypal-js
+- use PayPalScriptProvider in index.js
+  in index.js
+  <PayPalScriptProvider deferLoading={true}>
+  <App />
+  </PayPalScriptProvider>
+- use usePayPalScriptReducer in Order page
+- implement loadPayPalScript function
+- render paypal button
+- implement onApprove payment function
+- create pay order api in backend
 
 ### Order History
 
-1. create order page
-2. create order history api
-3. use api in the frontend9
+- create order page
+- create order history api
+- use api in the frontend9
 
 ### Profile page
 
-1. get user info from content
-2. show user information
-3. create user update api
-4. update user info
+- get user info from content
+- show user information
+- create user update api
+- update user info
 
 ### Side bar and search box
 
-1. add sidebar
-2. add search box
+- add sidebar
+- add search box
 
 ### Search page
 
-1. show filters
-2. create api for searching products
-3. display results
+- show filters
+- create api for searching products
+- display results
 
 ### Admin menu
 
-1. define protected route component
-2. define admin route component
-3. add menu for admin in header
+- define protected route component
+- define admin route component
+- add menu for admin in header
 
 ### Dashboard page
 
-1. create dashboard ui
-2. implement backend api
-3. connect ui to backend
+- create dashboard ui
+- implement backend api
+- connect ui to backend
 
 ### Manage products in admin area
 
-1. create products list ui
-2. implement backend api
-3. fetch data
+- create products list ui
+- implement backend api
+- fetch data
 
 ### Create Product feature in admin
 
-1. create products button
-2. implement backend api
-3. handle on click
+- create products button
+- implement backend api
+- handle on click
 
 ### Edit product in admin
 
-1. create edit button
-2. create edit product ui
-3. display product info in the input boxes
+- create edit button
+- create edit product ui
+- display product info in the input boxes
 
 ### Implement update product in admin
 
-1. create edit product backend api
-2. handle update click
+- create edit product backend api
+- handle update click
 
 ### Delete product
 
-1. show delete button
-2. implement backend api
-3. handle on click
+- show delete button
+- implement backend api
+- handle on click
 
 ### List Orders in admin
 
-1. create order list page
-2. implement backend api
-3. fetch and display orders
+- create order list page
+- implement backend api
+- fetch and display orders
 
 ### Ship order
 
-1. add ship button
-2. handle click action
-3. implement backend api for shipping
+- add ship button
+- handle click action
+- implement backend api for shipping
 
 ### Publish on Heroku
 
