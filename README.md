@@ -52,7 +52,7 @@ Don't forget to import Bootstrap in index.js _import 'bootstrap/dist/css/bootstr
 ### Change names of headings
 
 - npm install react-helmet-async
-- _<HelmetProvider> <Helmet><title>some title</title</Helmet>_
+- _<HelmetProvider> <Helmet><title>some title</title</Helmet>_ (changes tab title)
 
 ### Loading and Message Component
 
