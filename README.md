@@ -268,6 +268,18 @@ login / dashboard / use sandbox for testing
 - handle click action
 - implement backend api for shipping
 
+### Delete order
+
+- add delete button (orderListPage)
+- handle click action
+- implement backend api for delete (orderRouter)
+
+### List users
+
+- create user list page
+- implement backend api
+- fetch and display users
+
 ### Publish on Heroku
 
 1. create and config node project - npm init (root directory)
