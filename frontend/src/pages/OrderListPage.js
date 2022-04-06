@@ -77,7 +77,7 @@ const OrderListPage = () => {
         toast.success('order deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (err) {
-        toast.error(getError(err));
+        toast.error(getError(error));
         dispatch({ type: 'DELETE_FAIL' });
       }
     }
