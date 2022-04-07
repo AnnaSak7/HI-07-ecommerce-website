@@ -280,6 +280,14 @@ login / dashboard / use sandbox for testing
 - implement backend api
 - fetch and display users
 
+### Edit user
+
+- create edit button
+- create edit product ui
+- display product info in the input boxes
+- implement backend api
+- handle edit click
+
 ### Publish on Heroku
 
 1. create and config node project - npm init (root directory)
