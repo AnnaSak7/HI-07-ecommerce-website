@@ -288,6 +288,12 @@ login / dashboard / use sandbox for testing
 - implement backend api
 - handle edit click
 
+### Delete user
+
+- add delete button
+- handle click action
+- implement backend api for delete
+
 ### Publish on Heroku
 
 1. create and config node project - npm init (root directory)
