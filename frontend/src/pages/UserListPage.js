@@ -12,7 +12,7 @@ const reducer = (state, action) => {
       return { ...state, loading: true };
 
     case 'FETCH_SUCCESS':
-      return { ...state, orders: action.payload, loading: false };
+      return { ...state, users: action.payload, loading: false };
 
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
