@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
-// import bcrypt from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
@@ -77,7 +77,16 @@ userRouter.post(
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       // if (bcrypt.compareSync(req.body.password === user.password))
-      if (req.body.password === user.password) {
+      // if (req.body.password === user.password) {
+      //   res.send({
+      //     _id: user._id,
+      //     name: user.name,
+      //     email: user.email,
+      //     isAdmin: user.isAdmin,
+      //     token: generateToken(user),
+      //   });
+      // 1. plain text pw 2.encrypted pw in data
+      if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
           name: user.name,
@@ -85,15 +94,6 @@ userRouter.post(
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
-        // 1. plain text pw 2.encrypted pw in data
-        // if (bcrypt.compareSync(req.body.password, user.password)) {
-        //   res.send({
-        //     _id: user._id,
-        //     name: user.name,
-        //     email: user.email,
-        //     isAdmin: user.isAdmin,
-        //     token: generateToken(user),
-        //   });
         return;
       }
     }
@@ -107,7 +107,8 @@ userRouter.post(
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      //password: req.body.password,
+      password: bcrypt.hashSync(req.body.password),
     });
     const user = await newUser.save();
     res.send({
@@ -128,9 +129,9 @@ userRouter.put(
       user.name = req.body.name || user.name;
       user.email = req.body.name || user.email;
       user.password = req.body.password || user.password;
-      // if(req.body.password){
-      //   user.password = bcrypt.hasSync(req.body.password, 8)
-      // }
+      if (req.body.password) {
+        user.password = bcrypt.hasSync(req.body.password, 8);
+      }
       const updateUser = await user.save();
       res.send({
         _id: updateUser._id,
