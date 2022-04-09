@@ -250,6 +250,16 @@ login / dashboard / use sandbox for testing
 - create edit product backend api
 - handle update click
 
+### Upload product image
+
+- create cloudinary account
+  - npm i cloudinary
+  - npm i streamifier
+  - npm i multer
+- use the api key in env file
+- handle upload file
+- implement backend api to upload
+
 ### Delete product
 
 - show delete button

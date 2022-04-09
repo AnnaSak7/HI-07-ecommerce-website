@@ -50,7 +50,9 @@ const CustomButton = styled(Button)({
 const SigninPage = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
+  console.log('search : ', search);
   const redirectInUrl = new URLSearchParams(search).get('redirect');
+  console.log('redirectInUrl is : ', redirectInUrl);
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
   const [email, setEmail] = useState('');
