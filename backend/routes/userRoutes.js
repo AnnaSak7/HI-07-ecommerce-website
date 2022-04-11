@@ -76,7 +76,6 @@ userRouter.post(
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      // if (bcrypt.compareSync(req.body.password === user.password))
       // if (req.body.password === user.password) {
       //   res.send({
       //     _id: user._id,
@@ -85,6 +84,7 @@ userRouter.post(
       //     isAdmin: user.isAdmin,
       //     token: generateToken(user),
       //   });
+
       // 1. plain text pw 2.encrypted pw in data
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({

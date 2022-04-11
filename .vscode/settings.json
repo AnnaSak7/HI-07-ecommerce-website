@@ -1,10 +1,12 @@
 {
   "cSpell.words": [
+    "cloudinary",
     "orderhistory",
     "placeorder",
     "productlist",
     "SIGNIN",
     "SIGNOUT",
+    "streamifier",
     "toastify",
     "userlist"
   ]
